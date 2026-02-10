@@ -9,8 +9,8 @@
   --border: rgba(31, 26, 36, 0.12);
   --shadow: 0 20px 60px rgba(40, 24, 78, 0.12);
   --radius: 24px;
-  --radius-sm: 14px;
-  --radius-xs: 10px;
+  --radius-sm: 12px;
+  --radius-xs: 8px;
   --transition: 200ms ease;
 }
 
@@ -245,7 +245,7 @@ h2,
 .primary-btn,
 .ghost-btn {
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
   padding: 12px 20px;
   font-weight: 600;
   cursor: pointer;
