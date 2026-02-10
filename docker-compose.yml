@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: excellent_md
+      POSTGRES_USER: excellent
+      POSTGRES_PASSWORD: excellent
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U excellent -d excellent_md"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      ADDR: ":8080"
+      DATABASE_URL: "postgres://excellent:excellent@db:5432/excellent_md?sslmode=disable"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  db-data:
