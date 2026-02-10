@@ -9,6 +9,8 @@
   --border: rgba(31, 26, 36, 0.12);
   --shadow: 0 20px 60px rgba(40, 24, 78, 0.12);
   --radius: 24px;
+  --radius-sm: 14px;
+  --radius-xs: 10px;
   --transition: 200ms ease;
 }
 
@@ -159,7 +161,7 @@ h2,
 
 .hero-meta span {
   padding: 6px 12px;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.6);
   border: 1px solid rgba(166, 136, 241, 0.2);
 }
@@ -181,6 +183,11 @@ h2,
   transition: var(--transition);
   cursor: pointer;
   background: rgba(255, 255, 255, 0.4);
+}
+
+.upload-zone:hover {
+  background: rgba(255, 255, 255, 0.65);
+  transform: translateY(-1px);
 }
 
 .upload-zone:focus-visible,
@@ -238,13 +245,18 @@ h2,
 .primary-btn,
 .ghost-btn {
   border: none;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   padding: 12px 20px;
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
 }
 
 button:focus-visible {
@@ -263,9 +275,14 @@ button:focus-visible {
   box-shadow: 0 16px 30px rgba(127, 96, 216, 0.3);
 }
 
+.primary-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
 .btn-label {
   display: inline-block;
   transition: var(--transition);
+  line-height: 1;
 }
 
 .spinner {
@@ -274,7 +291,6 @@ button:focus-visible {
   border-radius: 999px;
   border: 2px solid rgba(255, 255, 255, 0.4);
   border-top-color: #fff;
-  margin-left: 10px;
   display: inline-block;
   opacity: 0;
   transition: var(--transition);
@@ -289,6 +305,10 @@ button:focus-visible {
   opacity: 0.85;
 }
 
+.primary-btn.loading {
+  cursor: progress;
+}
+
 .ghost-btn {
   background: transparent;
   border: 1px solid rgba(31, 26, 36, 0.2);
@@ -298,6 +318,11 @@ button:focus-visible {
 .ghost-btn:hover:not(:disabled) {
   border-color: var(--primary);
   color: var(--primary-dark);
+  background: rgba(166, 136, 241, 0.08);
+}
+
+.ghost-btn:active:not(:disabled) {
+  transform: translateY(0);
 }
 
 .primary-btn:disabled,
@@ -329,7 +354,7 @@ button:focus-visible {
 .file-info {
   margin-top: 16px;
   padding: 12px 14px;
-  border-radius: 16px;
+  border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.65);
   border: 1px solid rgba(166, 136, 241, 0.2);
   display: flex;
@@ -351,7 +376,7 @@ button:focus-visible {
 .icon-btn {
   width: 32px;
   height: 32px;
-  border-radius: 12px;
+  border-radius: var(--radius-xs);
   border: 1px solid rgba(31, 26, 36, 0.2);
   background: #fff;
   cursor: pointer;
@@ -361,6 +386,10 @@ button:focus-visible {
 .icon-btn:hover {
   border-color: var(--primary);
   color: var(--primary-dark);
+}
+
+.icon-btn:active {
+  transform: translateY(1px);
 }
 
 .icon-btn:disabled {
@@ -393,7 +422,7 @@ button:focus-visible {
 }
 
 .filter-input {
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   border: 1px solid rgba(31, 26, 36, 0.18);
   padding: 10px 14px;
   font-size: 0.9rem;
@@ -413,7 +442,7 @@ button:focus-visible {
 
 .empty-card {
   padding: 24px;
-  border-radius: 20px;
+  border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.75);
   border: 1px dashed rgba(166, 136, 241, 0.4);
 }
@@ -442,6 +471,12 @@ button:focus-visible {
   border: 1px solid var(--border);
   box-shadow: 0 12px 24px rgba(32, 20, 66, 0.08);
   animation: fadeUp 0.4s ease;
+  transition: var(--transition);
+}
+
+.sheet-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(32, 20, 66, 0.12);
 }
 
 .sheet-header {
@@ -486,7 +521,7 @@ button:focus-visible {
   display: inline-flex;
   gap: 4px;
   padding: 4px;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   background: rgba(247, 244, 255, 0.8);
   border: 1px solid rgba(166, 136, 241, 0.25);
 }
@@ -495,12 +530,17 @@ button:focus-visible {
   border: none;
   background: transparent;
   padding: 6px 14px;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--muted);
   transition: var(--transition);
+}
+
+.tab-btn:hover {
+  color: var(--primary-dark);
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .tab-btn.active {
@@ -520,7 +560,7 @@ button:focus-visible {
 .preview {
   margin-top: 16px;
   padding: 20px;
-  border-radius: 16px;
+  border-radius: var(--radius-sm);
   background: rgba(247, 244, 255, 0.6);
   border: 1px solid rgba(166, 136, 241, 0.18);
   overflow-x: auto;
@@ -547,7 +587,7 @@ button:focus-visible {
   margin-top: 16px;
   background: #111019;
   color: #f8f7ff;
-  border-radius: 16px;
+  border-radius: var(--radius-sm);
   padding: 20px;
   font-size: 0.85rem;
   overflow-x: auto;
@@ -562,7 +602,7 @@ button:focus-visible {
   border: 1px solid rgba(220, 80, 80, 0.3);
   color: #7c2f2f;
   padding: 12px 14px;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   margin-top: 16px;
 }
 
@@ -579,13 +619,14 @@ button:focus-visible {
   background: rgba(17, 16, 25, 0.9);
   color: #f8f7ff;
   padding: 12px 20px;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   font-size: 0.9rem;
   opacity: 0;
   transform: translateY(8px);
   transition: var(--transition);
   pointer-events: none;
   z-index: 100;
+  box-shadow: 0 10px 24px rgba(17, 16, 25, 0.2);
 }
 
 .toast.show {
