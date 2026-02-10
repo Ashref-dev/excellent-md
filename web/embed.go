@@ -3,7 +3,10 @@ package web
 import (
 	"embed"
 	"io/fs"
+	"mime"
 	"net/http"
+	"path"
+	"strings"
 )
 
 //go:embed index.html assets/*
@@ -18,9 +21,27 @@ func Handler() http.Handler {
 	fileServer := http.FileServer(http.FS(sub))
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if r.URL.Path == "/" {
-			r.URL.Path = "/index.html"
+		switch r.URL.Path {
+		case "/", "/index.html":
+			serveIndex(w, r, sub)
+			return
 		}
-		fileServer.ServeHTTP(w, r)
+
+		if strings.HasPrefix(r.URL.Path, "/assets/") {
+			fileServer.ServeHTTP(w, r)
+			return
+		}
+
+		http.NotFound(w, r)
 	})
+}
+
+func serveIndex(w http.ResponseWriter, r *http.Request, filesystem fs.FS) {
+	data, err := fs.ReadFile(filesystem, "index.html")
+	if err != nil {
+		http.NotFound(w, r)
+		return
+	}
+	w.Header().Set("Content-Type", mime.TypeByExtension(path.Ext("index.html")))
+	_, _ = w.Write(data)
 }

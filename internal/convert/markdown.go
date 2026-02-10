@@ -22,8 +22,10 @@ func SheetToMarkdown(rows [][]string) (string, int, int) {
 		trimmedRows = append(trimmedRows, trimmed)
 	}
 
-	if maxCols == 0 {
-		return emptySheetMessage, len(rows), 0
+	trimmedRows = trimTrailingEmptyRows(trimmedRows)
+
+	if len(trimmedRows) == 0 || maxCols == 0 {
+		return emptySheetMessage, 0, 0
 	}
 
 	normalized := padRows(trimmedRows, maxCols)
@@ -54,6 +56,20 @@ func trimTrailingEmpty(row []string) []string {
 	trimmed := make([]string, end)
 	copy(trimmed, row[:end])
 	return trimmed
+}
+
+func trimTrailingEmptyRows(rows [][]string) [][]string {
+	end := len(rows)
+	for end > 0 {
+		if len(rows[end-1]) > 0 {
+			break
+		}
+		end--
+	}
+	if end == 0 {
+		return [][]string{}
+	}
+	return rows[:end]
 }
 
 func padRows(rows [][]string, width int) [][]string {

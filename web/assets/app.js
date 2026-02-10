@@ -81,48 +81,19 @@ function buildSheetCard(sheet) {
   const header = document.createElement("div");
   header.className = "sheet-header";
 
+  const info = document.createElement("div");
+  info.className = "sheet-info";
+
   const title = document.createElement("div");
-  title.innerHTML = `<div class="sheet-title">${sheet.name}</div><div class="sheet-meta">${sheet.row_count} rows • ${sheet.col_count} columns</div>`;
+  title.className = "sheet-title";
+  title.textContent = sheet.name;
+  title.title = sheet.name;
 
-  const actions = document.createElement("div");
-  actions.className = "sheet-actions";
+  const meta = document.createElement("span");
+  meta.className = "sheet-meta-inline";
+  meta.textContent = `${sheet.row_count} rows • ${sheet.col_count} cols`;
 
-  const copyBtn = document.createElement("button");
-  copyBtn.className = "ghost-btn";
-  copyBtn.textContent = "Copy";
-  copyBtn.addEventListener("click", () => copyText(sheet.markdown || "", copyBtn));
-
-  const downloadBtn = document.createElement("button");
-  downloadBtn.className = "ghost-btn";
-  downloadBtn.textContent = "Download";
-  downloadBtn.addEventListener("click", () => downloadText(`${sheet.name}.md`, sheet.markdown || "", downloadBtn));
-
-  actions.append(copyBtn, downloadBtn);
-  header.append(title, actions);
-  card.append(header);
-
-  const pills = document.createElement("div");
-  pills.className = "sheet-pills";
-  pills.innerHTML = `<span class="pill">${sheet.row_count} rows</span><span class="pill">${sheet.col_count} cols</span>`;
-  if (sheet.warnings && sheet.warnings.length) {
-    pills.innerHTML += `<span class="pill">${sheet.warnings.length} warning${sheet.warnings.length > 1 ? "s" : ""}</span>`;
-  }
-  card.appendChild(pills);
-
-  if (sheet.warnings && sheet.warnings.length) {
-    const warningList = document.createElement("div");
-    warningList.className = "warning-list";
-    warningList.innerHTML = sheet.warnings.map((warn) => `• ${warn}`).join("<br>");
-    card.appendChild(warningList);
-  }
-
-  if (sheet.error) {
-    const errorBox = document.createElement("div");
-    errorBox.className = "error-box";
-    errorBox.textContent = sheet.error;
-    card.appendChild(errorBox);
-    return card;
-  }
+  info.append(title, meta);
 
   const tabList = document.createElement("div");
   tabList.className = "tab-list";
@@ -139,7 +110,39 @@ function buildSheetCard(sheet) {
   markdownBtn.setAttribute("role", "tab");
 
   tabList.append(previewBtn, markdownBtn);
-  card.appendChild(tabList);
+
+  const actions = document.createElement("div");
+  actions.className = "sheet-actions";
+
+  const copyBtn = document.createElement("button");
+  copyBtn.className = "ghost-btn";
+  copyBtn.textContent = "Copy";
+  copyBtn.addEventListener("click", () => copyText(sheet.markdown || "", copyBtn));
+
+  const downloadBtn = document.createElement("button");
+  downloadBtn.className = "ghost-btn";
+  downloadBtn.textContent = "Download";
+  downloadBtn.addEventListener("click", () => downloadText(`${sheet.name}.md`, sheet.markdown || "", downloadBtn));
+
+  actions.append(copyBtn, downloadBtn);
+
+  header.append(info, tabList, actions);
+  card.appendChild(header);
+
+  if (sheet.warnings && sheet.warnings.length) {
+    const warningList = document.createElement("div");
+    warningList.className = "warning-list";
+    warningList.innerHTML = sheet.warnings.map((warn) => `• ${warn}`).join("<br>");
+    card.appendChild(warningList);
+  }
+
+  if (sheet.error) {
+    const errorBox = document.createElement("div");
+    errorBox.className = "error-box";
+    errorBox.textContent = sheet.error;
+    card.appendChild(errorBox);
+    return card;
+  }
 
   const preview = document.createElement("div");
   preview.className = "tab-content preview";
@@ -169,9 +172,9 @@ function renderResults(result) {
     skippedCard.className = "sheet-card";
     skippedCard.innerHTML = `
       <div class="sheet-header">
-        <div>
+        <div class="sheet-info">
           <div class="sheet-title">Skipped sheets</div>
-          <div class="sheet-meta">Hidden or unsupported sheets are listed below.</div>
+          <span class="sheet-meta-inline">Hidden or unsupported sheets</span>
         </div>
       </div>
       <div class="warning-list">${result.skipped
@@ -230,8 +233,8 @@ function copyText(text, button) {
   if (navigator.clipboard?.writeText) {
     navigator.clipboard.writeText(text).then(() => {
       setStatus("Copied to clipboard.", "success");
-      showToast("Copied to clipboard.");
-      if (button) bumpButtonLabel(button, "Copied");
+      showToast("Copied to clipboard");
+      if (button) bumpButtonLabel(button, "Copied!");
     });
     return;
   }
@@ -242,8 +245,8 @@ function copyText(text, button) {
   document.execCommand("copy");
   textarea.remove();
   setStatus("Copied to clipboard.", "success");
-  showToast("Copied to clipboard.");
-  if (button) bumpButtonLabel(button, "Copied");
+  showToast("Copied to clipboard");
+  if (button) bumpButtonLabel(button, "Copied!");
 }
 
 function downloadText(filename, text, button) {
@@ -257,8 +260,8 @@ function downloadText(filename, text, button) {
   link.click();
   link.remove();
   URL.revokeObjectURL(url);
-  showToast("Download ready.");
-  if (button) bumpButtonLabel(button, "Saved");
+  showToast("Download ready");
+  if (button) bumpButtonLabel(button, "Saved!");
 }
 
 function escapeHtml(text) {
@@ -287,7 +290,7 @@ function showToast(message) {
   clearTimeout(showToast._timer);
   showToast._timer = setTimeout(() => {
     toast.classList.remove("show");
-  }, 1600);
+  }, 2000);
 }
 
 function bumpButtonLabel(button, text) {
@@ -297,7 +300,7 @@ function bumpButtonLabel(button, text) {
   setTimeout(() => {
     button.textContent = original;
     button.disabled = false;
-  }, 900);
+  }, 1200);
 }
 
 function setActiveTab(activeBtn, inactiveBtn, activeContent, inactiveContent) {
