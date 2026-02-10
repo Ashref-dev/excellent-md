@@ -20,6 +20,13 @@
   padding: 0;
 }
 
+button,
+input,
+select,
+textarea {
+  border-radius: var(--radius-xs);
+}
+
 body {
   font-family: "Inter", sans-serif;
   color: var(--text);
@@ -81,7 +88,7 @@ h2,
   font-size: 0.875rem;
   text-decoration: none;
   padding: 6px 12px;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   transition: var(--transition);
 }
 
@@ -422,7 +429,7 @@ button:focus-visible {
 }
 
 .filter-input {
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
   border: 1px solid rgba(31, 26, 36, 0.18);
   padding: 10px 14px;
   font-size: 0.9rem;
