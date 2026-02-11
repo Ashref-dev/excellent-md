@@ -24,7 +24,7 @@ button,
 input,
 select,
 textarea {
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-xs) !important;
 }
 
 body {
@@ -252,7 +252,7 @@ h2,
 .primary-btn,
 .ghost-btn {
   border: none;
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-xs) !important;
   padding: 12px 20px;
   font-weight: 600;
   cursor: pointer;
