@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	defaultMaxUploadMB       = 10
+	defaultMaxUploadMB       = 50
 	defaultMaxSheets         = 50
 	defaultMaxCellsPerSheet  = 200000
 	defaultTimeoutSeconds    = 10

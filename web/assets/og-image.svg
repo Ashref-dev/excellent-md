@@ -1,16 +1,16 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F7F4FF" />
+      <stop stop-color="#F9F7FF" />
       <stop offset="0.52" stop-color="#FFFFFF" />
-      <stop offset="1" stop-color="#EFE8FF" />
+      <stop offset="1" stop-color="#F3EFFF" />
     </linearGradient>
-    <radialGradient id="orb1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(980 80) rotate(135) scale(280)">
-      <stop stop-color="#A688F1" stop-opacity="0.55" />
+    <radialGradient id="orb1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(980 80) rotate(135) scale(260)">
+      <stop stop-color="#A688F1" stop-opacity="0.45" />
       <stop offset="1" stop-color="#A688F1" stop-opacity="0" />
     </radialGradient>
-    <radialGradient id="orb2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 560) rotate(45) scale(320)">
-      <stop stop-color="#FFD6AA" stop-opacity="0.45" />
+    <radialGradient id="orb2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 560) rotate(45) scale(300)">
+      <stop stop-color="#FFD6AA" stop-opacity="0.35" />
       <stop offset="1" stop-color="#FFD6AA" stop-opacity="0" />
     </radialGradient>
   </defs>
@@ -19,7 +19,7 @@
   <rect width="1200" height="630" fill="url(#orb2)" />
 
   <circle cx="120" cy="156" r="12" fill="#A688F1" />
-  <text x="150" y="170" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="600" fill="#1D1A24">excel.ashref.tn</text>
+  <text x="150" y="170" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="600" fill="#1D1A24">excel.ashref.en</text>
 
   <text x="120" y="250" font-family="Instrument Serif, Georgia, serif" font-size="64" font-weight="500" fill="#1D1A24">Multi-sheet XLSX → Markdown</text>
   <text x="120" y="310" font-family="Inter, Arial, sans-serif" font-size="28" fill="#6F6A7A">Convert every sheet into clean, ready-to-share Markdown tables.</text>

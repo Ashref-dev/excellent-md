@@ -28,7 +28,7 @@ Docker
 
 Configuration
 - ADDR (default :8080)
-- MAX_UPLOAD_MB (default 10)
+- MAX_UPLOAD_MB (default 50)
 - MAX_SHEETS (default 50)
 - MAX_CELLS_PER_SHEET (default 200000)
 - CONVERSION_TIMEOUT_SECONDS (default 10)

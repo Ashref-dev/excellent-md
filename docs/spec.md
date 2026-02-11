@@ -29,7 +29,7 @@
 - Rich text and cell styling are not preserved.
 
 ## Limits & Safety
-- Max upload size: 10 MB.
+- Max upload size: 50 MB.
 - Max sheets: 50.
 - Max cells per sheet: 200,000.
 - Requests time out if conversion exceeds 10 seconds.

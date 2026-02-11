@@ -1,4 +1,4 @@
-const MAX_MB = 10;
+const MAX_MB = 50;
 const MAX_BYTES = MAX_MB * 1024 * 1024;
 
 const fileInput = document.getElementById("fileInput");
@@ -17,6 +17,7 @@ const downloadAllBtn = document.getElementById("downloadAllBtn");
 const sheetFilter = document.getElementById("sheetFilter");
 const emptyState = document.getElementById("emptyState");
 const toast = document.getElementById("toast");
+const modeToggle = document.getElementById("modeToggle");
 
 let currentFile = null;
 let lastResult = null;
@@ -57,8 +58,9 @@ function handleFile(file) {
   if (!file) {
     return;
   }
-  if (!file.name.toLowerCase().endsWith(".xlsx")) {
-    setStatus("Only .xlsx files are supported.", "error");
+  const lowerName = file.name.toLowerCase();
+  if (!lowerName.endsWith(".xlsx") && !lowerName.endsWith(".xls")) {
+    setStatus("Only .xlsx or .xls files are supported.", "error");
     return;
   }
   if (file.size > MAX_BYTES) {
@@ -378,3 +380,17 @@ function applyFilter(value) {
 }
 
 resetUI();
+
+if (modeToggle) {
+  const savedTheme = window.localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("theme-dark");
+    modeToggle.setAttribute("aria-pressed", "true");
+  }
+
+  modeToggle.addEventListener("click", () => {
+    const isDark = document.body.classList.toggle("theme-dark");
+    modeToggle.setAttribute("aria-pressed", isDark ? "true" : "false");
+    window.localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+}
