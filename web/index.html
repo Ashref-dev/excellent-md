@@ -8,7 +8,8 @@
       name="description"
       content="Convert multi-sheet XLSX files into clean Markdown tables. Upload, preview, copy, and download every sheet."
     />
-    <meta name="theme-color" content="#A688F1" />
+    <meta name="theme-color" content="#0a0913" />
+    <meta name="color-scheme" content="dark light" />
     <link rel="canonical" href="https://excel.ashref.en" />
     <meta property="og:title" content="excel.ashref.en — XLSX to Markdown" />
     <meta
@@ -31,108 +32,138 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
+    <script src="/assets/theme-init.js"></script>
     <link rel="stylesheet" href="/assets/style.css" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   </head>
   <body>
-    <nav class="top-nav">
-      <div class="container nav-inner">
-        <div class="brand"><span class="brand-dot" aria-hidden="true"></span>excel.ashref.en</div>
-        <button class="mode-toggle" id="modeToggle" type="button" aria-pressed="false">
-          <span class="mode-label" data-mode="light">Light</span>
-          <span class="mode-switch" aria-hidden="true"></span>
-          <span class="mode-label" data-mode="dark">Dark</span>
-        </button>
-      </div>
-    </nav>
-    <div class="background">
-      <div class="blur-orb orb-one"></div>
-      <div class="blur-orb orb-two"></div>
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient-orb orb-top"></div>
+      <div class="ambient-orb orb-bottom"></div>
+      <div class="ambient-grid"></div>
     </div>
-    <header class="hero">
-      <div class="container">
-        <div class="hero-text">
-          <p class="eyebrow">Excel to Markdown</p>
-          <h1>Turn every sheet into clean Markdown.</h1>
-          <p class="subhead">
-            Upload a multi-page XLSX and get a beautifully organized Markdown output for each
-            sheet — ready to copy, share, or download.
-          </p>
-          <div class="hero-meta">
-            <span>Multiple sheets</span>
-            <span>Fast conversion</span>
-            <span>One-click copy</span>
-          </div>
-        </div>
-        <div class="upload-card" id="uploadCard">
-          <div class="upload-zone" id="dropzone" tabindex="0" role="button" aria-label="Upload Excel file">
-            <input id="fileInput" type="file" accept=".xlsx,.xls" />
-            <div class="upload-content">
-              <div class="upload-icon">⇪</div>
-              <div>
-                <p class="upload-title">Drop your .xlsx here</p>
-                <p class="upload-subtitle">or click to browse</p>
-              </div>
-            </div>
-          </div>
-          <div class="upload-hint">
-            Max 50MB • XLSX/XLS supported • One file at a time
-          </div>
-          <div class="upload-actions">
-            <button class="primary-btn" id="convertBtn" disabled>
-              <span class="btn-label">Convert to Markdown</span>
-              <span class="spinner" aria-hidden="true"></span>
-            </button>
-            <button class="ghost-btn" id="resetBtn" disabled>Reset</button>
-          </div>
-          <div class="file-info" id="fileInfo" aria-live="polite">
-            <div class="file-details">
-              <div class="file-name" id="fileName">No file selected</div>
-              <div class="file-size" id="fileSize">Select a workbook to begin.</div>
-            </div>
-            <button class="icon-btn" id="removeFileBtn" type="button" aria-label="Remove selected file">
-              ✕
-            </button>
-          </div>
-          <div class="status" id="status" role="status" aria-live="polite"></div>
+
+    <header class="site-header" id="siteHeader">
+      <div class="container header-inner reveal">
+        <a class="brand" href="#converter">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-text">excel.ashref.en</span>
+        </a>
+
+        <nav class="header-nav" aria-label="Main navigation">
+          <a href="#converter">Converter</a>
+          <a href="#results">Results</a>
+        </nav>
+
+        <div class="header-tools">
+          <span class="header-pill">Private • Local • Instant</span>
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme: System">
+            <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+            <span class="theme-toggle-label" id="themeToggleLabel">System</span>
+          </button>
         </div>
       </div>
     </header>
 
-    <main class="container">
-      <section class="results" id="results">
-        <div class="results-header">
-          <div>
-            <h2>Your Markdown Output</h2>
-            <p id="resultsMeta">Upload a file to begin.</p>
+    <main>
+      <section class="hero" id="converter">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Excel to Markdown</p>
+            <h1>
+              Turn every workbook into
+              <span class="serif">beautiful Markdown</span>
+              in seconds.
+            </h1>
+            <p class="hero-description">
+              Professional-grade conversion with a calm, focused workspace. Upload a multi-sheet
+              Excel file and get clean Markdown output for each tab, ready to copy or download.
+            </p>
+            <div class="hero-meta">
+              <span>Multi-sheet support</span>
+              <span>Fast conversion pipeline</span>
+              <span>Copy & download instantly</span>
+            </div>
           </div>
-          <div class="results-actions">
-            <input
-              class="filter-input"
-              id="sheetFilter"
-              type="search"
-              placeholder="Filter sheets..."
-              aria-label="Filter sheets"
-            />
-            <button class="primary-btn" id="copyAllBtn" disabled>Copy all</button>
-            <button class="ghost-btn" id="downloadAllBtn" disabled>Download .md</button>
+
+          <div class="hero-panel reveal" id="uploadCard">
+            <div class="upload-card">
+              <div class="upload-zone" id="dropzone" tabindex="0" role="button" aria-label="Upload Excel file">
+                <input id="fileInput" type="file" accept=".xlsx,.xls" />
+                <div class="upload-icon" aria-hidden="true">✦</div>
+                <div class="upload-copy">
+                  <p class="upload-title">Drop your .xlsx here</p>
+                  <p class="upload-subtitle">or click to browse files</p>
+                </div>
+              </div>
+
+              <p class="upload-hint">Up to 50MB • XLSX/XLS • One workbook at a time</p>
+
+              <div class="upload-actions">
+                <button class="primary-btn" id="convertBtn" disabled>
+                  <span class="btn-label">Convert to Markdown</span>
+                  <span class="spinner" aria-hidden="true"></span>
+                </button>
+                <button class="ghost-btn" id="resetBtn" disabled>Reset</button>
+              </div>
+
+              <div class="file-info" id="fileInfo" aria-live="polite">
+                <div class="file-details">
+                  <div class="file-name" id="fileName">No file selected</div>
+                  <div class="file-size" id="fileSize">Select a workbook to begin.</div>
+                </div>
+                <button class="icon-btn" id="removeFileBtn" type="button" aria-label="Remove selected file">
+                  ✕
+                </button>
+              </div>
+
+              <div class="status" id="status" role="status" aria-live="polite"></div>
+            </div>
           </div>
         </div>
-        <div class="empty-state" id="emptyState">
-          <div class="empty-card">
-            <h3>Start with a workbook</h3>
-            <p>Drop a multi-page XLSX to get clean Markdown for every sheet.</p>
-            <ul>
-              <li>Supports up to 10MB</li>
-              <li>Exports all sheets at once</li>
-              <li>Copy or download instantly</li>
-            </ul>
-          </div>
+      </section>
+
+      <section class="results-shell">
+        <div class="container">
+          <section class="results-panel results reveal" id="results">
+            <div class="results-header">
+              <div>
+                <p class="results-kicker">Output workspace</p>
+                <h2>Your Markdown Output</h2>
+                <p id="resultsMeta">Upload a file to begin.</p>
+              </div>
+
+              <div class="results-actions">
+                <input
+                  class="filter-input"
+                  id="sheetFilter"
+                  type="search"
+                  placeholder="Filter sheets..."
+                  aria-label="Filter sheets"
+                />
+                <button class="primary-btn" id="copyAllBtn" disabled>Copy all</button>
+                <button class="ghost-btn" id="downloadAllBtn" disabled>Download .md</button>
+              </div>
+            </div>
+
+            <div class="empty-state" id="emptyState">
+              <article class="empty-card">
+                <h3>Start with a workbook</h3>
+                <p>Drop your Excel file and get polished Markdown output for each sheet.</p>
+                <div class="empty-points">
+                  <span>Structured tables</span>
+                  <span>Sheet-by-sheet preview</span>
+                  <span>One-click copy & download</span>
+                </div>
+              </article>
+            </div>
+
+            <div class="results-grid" id="resultsGrid"></div>
+          </section>
         </div>
-        <div class="results-grid" id="resultsGrid"></div>
       </section>
     </main>
 
