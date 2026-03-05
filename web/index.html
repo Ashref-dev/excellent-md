@@ -43,7 +43,6 @@
     <div class="ambient" aria-hidden="true">
       <div class="ambient-orb orb-top"></div>
       <div class="ambient-orb orb-bottom"></div>
-      <div class="ambient-grid"></div>
     </div>
 
     <header class="site-header" id="siteHeader">
@@ -54,42 +53,38 @@
         </a>
 
         <nav class="header-nav" aria-label="Main navigation">
-          <a href="#converter">Converter</a>
-          <a href="#results">Results</a>
+          <a href="#converter">Convert</a>
+          <a href="#results">Output</a>
         </nav>
 
-        <div class="header-tools">
-          <span class="header-pill">Private • Local • Instant</span>
-          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme: System">
-            <span class="theme-toggle-icon" aria-hidden="true">◐</span>
-            <span class="theme-toggle-label" id="themeToggleLabel">System</span>
-          </button>
-        </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme: System">
+          <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+          <span class="theme-toggle-label" id="themeToggleLabel">System</span>
+        </button>
       </div>
     </header>
 
-    <main>
+    <main class="page-shell">
       <section class="hero" id="converter">
-        <div class="container hero-grid">
-          <div class="hero-copy reveal">
+        <div class="container hero-layout reveal">
+          <div class="hero-copy">
             <p class="eyebrow">Excel to Markdown</p>
             <h1>
-              Turn every workbook into
-              <span class="serif">beautiful Markdown</span>
-              in seconds.
+              Clean markdown output,
+              <span class="serif">without friction.</span>
             </h1>
             <p class="hero-description">
-              Professional-grade conversion with a calm, focused workspace. Upload a multi-sheet
-              Excel file and get clean Markdown output for each tab, ready to copy or download.
+              Upload one workbook, convert every sheet, then copy or download your markdown
+              immediately.
             </p>
             <div class="hero-meta">
-              <span>Multi-sheet support</span>
-              <span>Fast conversion pipeline</span>
-              <span>Copy & download instantly</span>
+              <span>Multi-sheet</span>
+              <span>Fast</span>
+              <span>Export ready</span>
             </div>
           </div>
 
-          <div class="hero-panel reveal" id="uploadCard">
+          <div class="hero-panel" id="uploadCard">
             <div class="upload-card">
               <div class="upload-zone" id="dropzone" tabindex="0" role="button" aria-label="Upload Excel file">
                 <input id="fileInput" type="file" accept=".xlsx,.xls" />
@@ -126,13 +121,13 @@
         </div>
       </section>
 
-      <section class="results-shell">
+      <section class="results-shell" id="results">
         <div class="container">
-          <section class="results-panel results reveal" id="results">
+          <section class="results-panel results reveal">
             <div class="results-header">
               <div>
-                <p class="results-kicker">Output workspace</p>
-                <h2>Your Markdown Output</h2>
+                <p class="results-kicker">Output</p>
+                <h2>Your Markdown</h2>
                 <p id="resultsMeta">Upload a file to begin.</p>
               </div>
 
@@ -152,12 +147,7 @@
             <div class="empty-state" id="emptyState">
               <article class="empty-card">
                 <h3>Start with a workbook</h3>
-                <p>Drop your Excel file and get polished Markdown output for each sheet.</p>
-                <div class="empty-points">
-                  <span>Structured tables</span>
-                  <span>Sheet-by-sheet preview</span>
-                  <span>One-click copy & download</span>
-                </div>
+                <p>Drop your Excel file to generate markdown for each sheet.</p>
               </article>
             </div>
 

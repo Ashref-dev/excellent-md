@@ -36,7 +36,7 @@
 
 ## Environment Variables
 - `ADDR`: HTTP bind address (default `:8080`).
-- `MAX_UPLOAD_MB`: Max upload size in MB (default `10`).
+- `MAX_UPLOAD_MB`: Max upload size in MB (default `50`).
 - `MAX_SHEETS`: Max sheets per workbook (default `50`).
 - `MAX_CELLS_PER_SHEET`: Max cells per sheet (default `200000`).
 - `CONVERSION_TIMEOUT_SECONDS`: Conversion timeout (default `10`).
@@ -55,5 +55,8 @@
 
 ## Docker (local)
 - Build image: `docker build -t excellent-md .`
-- Run with Postgres: `docker compose up --build`
+- Run app only: `docker compose up --build`
+- Optional persistence:
+  1) Set `DATABASE_URL=postgres://excel:excel@db:5432/excellent_md?sslmode=disable`
+  2) Run `docker compose --profile persistence up --build`
 - App URL: `http://localhost:8080`
