@@ -1,0 +1,7 @@
+
+tunnel: 57e0a507-40d5-40a0-b9e6-e8613c587913
+credentials-file: /etc/cloudflared/57e0a507-40d5-40a0-b9e6-e8613c587913.json
+ingress:
+  - hostname: excel.ashref.tn
+    service: http://app:8080
+  - service: http_status:404

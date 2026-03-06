@@ -1,0 +1,24 @@
+services:
+  app:
+    build: ..
+    container_name: excel-md
+    restart: unless-stopped
+    environment:
+      ADDR: ":8080"
+    networks:
+      - excel-md
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: excel-md-tunnel
+    user: "0:0"
+    command: tunnel --no-autoupdate --config /etc/cloudflared/config.yml run
+    volumes:
+      - ./cloudflared:/etc/cloudflared:ro
+    depends_on:
+      - app
+    networks:
+      - excel-md
+    restart: unless-stopped
+networks:
+  excel-md:
+    name: excel-md

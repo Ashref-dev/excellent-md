@@ -48,3 +48,6 @@ temp/
 # Build artifacts
 dist/
 build/
+
+# Local Cloudflare tunnel credentials (never commit)
+deploy/cloudflared/*.json
