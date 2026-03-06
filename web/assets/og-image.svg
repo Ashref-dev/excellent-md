@@ -1,36 +1,85 @@
-<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">excel.ashref.en social preview</title>
+  <desc id="desc">Dark glassmorphism-style preview card for Excel to Markdown converter with subtle grid and purple-blue gradients.</desc>
+
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F9F7FF" />
-      <stop offset="0.52" stop-color="#FFFFFF" />
-      <stop offset="1" stop-color="#F3EFFF" />
+      <stop stop-color="#050713" />
+      <stop offset="0.55" stop-color="#070D20" />
+      <stop offset="1" stop-color="#04060F" />
     </linearGradient>
-    <radialGradient id="orb1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(980 80) rotate(135) scale(260)">
-      <stop stop-color="#A688F1" stop-opacity="0.45" />
-      <stop offset="1" stop-color="#A688F1" stop-opacity="0" />
+
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(130 84) rotate(32) scale(360)">
+      <stop stop-color="#9E80FF" stop-opacity="0.42" />
+      <stop offset="1" stop-color="#9E80FF" stop-opacity="0" />
     </radialGradient>
-    <radialGradient id="orb2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 560) rotate(45) scale(300)">
-      <stop stop-color="#FFD6AA" stop-opacity="0.35" />
-      <stop offset="1" stop-color="#FFD6AA" stop-opacity="0" />
+
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1024 120) rotate(140) scale(380)">
+      <stop stop-color="#5DA1FF" stop-opacity="0.32" />
+      <stop offset="1" stop-color="#5DA1FF" stop-opacity="0" />
     </radialGradient>
+
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" stroke="#A8B6FF" stroke-opacity="0.09" />
+    </pattern>
+
+    <linearGradient id="gridFade" x1="600" y1="0" x2="600" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.15" />
+      <stop offset="0.55" stop-color="#FFFFFF" stop-opacity="0.05" />
+      <stop offset="1" stop-color="#000000" stop-opacity="0.52" />
+    </linearGradient>
+
+    <linearGradient id="glass" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12172C" stop-opacity="0.68" />
+      <stop offset="1" stop-color="#172443" stop-opacity="0.48" />
+    </linearGradient>
+
+    <linearGradient id="panel" x1="160" y1="262" x2="1040" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10152A" stop-opacity="0.9" />
+      <stop offset="1" stop-color="#0C1123" stop-opacity="0.88" />
+    </linearGradient>
+
+    <linearGradient id="chip" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#9C80FF" />
+      <stop offset="1" stop-color="#7F62E8" />
+    </linearGradient>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)" />
-  <rect width="1200" height="630" fill="url(#orb1)" />
-  <rect width="1200" height="630" fill="url(#orb2)" />
+  <rect width="1200" height="630" fill="url(#glowA)" />
+  <rect width="1200" height="630" fill="url(#glowB)" />
+  <rect width="1200" height="630" fill="url(#grid)" />
+  <rect width="1200" height="630" fill="url(#gridFade)" />
 
-  <circle cx="120" cy="156" r="12" fill="#A688F1" />
-  <text x="150" y="170" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="600" fill="#1D1A24">excel.ashref.en</text>
+  <rect x="44" y="24" width="1112" height="64" rx="16" fill="url(#glass)" stroke="#C9D3FF" stroke-opacity="0.18" />
 
-  <text x="120" y="250" font-family="Instrument Serif, Georgia, serif" font-size="64" font-weight="500" fill="#1D1A24">Multi-sheet XLSX → Markdown</text>
-  <text x="120" y="310" font-family="Inter, Arial, sans-serif" font-size="28" fill="#6F6A7A">Convert every sheet into clean, ready-to-share Markdown tables.</text>
+  <circle cx="74" cy="56" r="8" fill="#9C80FF" />
+  <text x="92" y="63" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="600" fill="#F3F1FF">
+    excel.ashref.en
+  </text>
 
-  <g>
-    <rect x="120" y="360" width="280" height="48" rx="12" fill="#A688F1" />
-    <text x="150" y="392" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFFFFF">Upload XLSX</text>
-  </g>
+  <text x="600" y="192" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" letter-spacing="7" fill="#BBC7FF" fill-opacity="0.74">
+    EXCEL TO MARKDOWN
+  </text>
 
-  <g>
-    <rect x="420" y="360" width="280" height="48" rx="12" fill="#FFFFFF" stroke="#D8CEF5" />
-    <text x="452" y="392" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#5E4EA6">Copy Markdown</text>
-  </g>
+  <text x="600" y="286" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="84" font-weight="700" letter-spacing="-2" fill="#F4F2FF">
+    Clean markdown output,
+  </text>
+
+  <text x="600" y="362" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-size="80" font-style="italic" fill="#B7A0FF">
+    without friction.
+  </text>
+
+  <text x="600" y="410" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="30" fill="#C8D0EB" fill-opacity="0.82">
+    Multi-sheet XLSX conversion with instant markdown export.
+  </text>
+
+  <rect x="164" y="448" width="872" height="134" rx="24" fill="url(#panel)" stroke="#CBD4FF" stroke-opacity="0.16" />
+  <rect x="194" y="476" width="312" height="80" rx="16" fill="#0D1428" stroke="#A59BFF" stroke-opacity="0.42" />
+  <rect x="526" y="476" width="220" height="80" rx="16" fill="url(#chip)" fill-opacity="0.28" stroke="#C6B8FF" stroke-opacity="0.45" />
+  <rect x="766" y="476" width="240" height="80" rx="16" fill="#0D1428" stroke="#8EA2FF" stroke-opacity="0.3" />
+
+  <text x="222" y="522" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600" fill="#ECEBFF">Drop XLSX</text>
+  <text x="552" y="522" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600" fill="#F6F3FF">Convert</text>
+  <text x="808" y="522" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600" fill="#D7DEF7">Download .md</text>
 </svg>
