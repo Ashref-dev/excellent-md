@@ -8,8 +8,10 @@
       name="description"
       content="Convert multi-sheet XLSX files into clean Markdown tables. Upload, preview, copy, and download every sheet."
     />
-    <meta name="theme-color" content="#0a0913" />
+    <meta name="theme-color" content="#070a14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f7f9ff" media="(prefers-color-scheme: light)" />
     <meta name="color-scheme" content="dark light" />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://excel.ashref.en" />
     <meta property="og:title" content="excel.ashref.en — XLSX to Markdown" />
     <meta
@@ -48,7 +50,7 @@
     />
     <script src="/assets/theme-init.js"></script>
     <link rel="stylesheet" href="/assets/style.css" />
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
     <div class="ambient" aria-hidden="true">
@@ -58,15 +60,10 @@
 
     <header class="site-header" id="siteHeader">
       <div class="container header-inner reveal">
-        <a class="brand" href="#converter">
+        <a class="brand" href="/">
           <span class="brand-dot" aria-hidden="true"></span>
-          <span class="brand-text">excel.ashref.en</span>
+          <span class="brand-text">excel.ashref.tn</span>
         </a>
-
-        <nav class="header-nav" aria-label="Main navigation">
-          <a href="#converter">Convert</a>
-          <a href="#results">Output</a>
-        </nav>
 
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme: System">
           <span class="theme-toggle-icon" aria-hidden="true">◐</span>
@@ -109,11 +106,11 @@
               <p class="upload-hint">Up to 50MB • XLSX/XLS • One workbook at a time</p>
 
               <div class="upload-actions">
-                <button class="primary-btn" id="convertBtn" disabled>
+                <button class="primary-btn" id="convertBtn" type="button" disabled>
                   <span class="btn-label">Convert to Markdown</span>
                   <span class="spinner" aria-hidden="true"></span>
                 </button>
-                <button class="ghost-btn" id="resetBtn" disabled>Reset</button>
+                <button class="ghost-btn" id="resetBtn" type="button" disabled>Reset</button>
               </div>
 
               <div class="file-info" id="fileInfo" aria-live="polite">
@@ -150,8 +147,8 @@
                   placeholder="Filter sheets..."
                   aria-label="Filter sheets"
                 />
-                <button class="primary-btn" id="copyAllBtn" disabled>Copy all</button>
-                <button class="ghost-btn" id="downloadAllBtn" disabled>Download .md</button>
+                <button class="primary-btn" id="copyAllBtn" type="button" disabled>Copy all</button>
+                <button class="ghost-btn" id="downloadAllBtn" type="button" disabled>Download .md</button>
               </div>
             </div>
 
@@ -169,6 +166,12 @@
     </main>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Made by <a href="https://ashref.tn" target="_blank" rel="noopener">ashref.tn</a></p>
+      </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.5/dist/purify.min.js"></script>

@@ -22,6 +22,7 @@ const siteHeader = document.getElementById("siteHeader");
 const uploadCard = document.getElementById("uploadCard");
 const themeToggle = document.getElementById("themeToggle");
 const themeToggleLabel = document.getElementById("themeToggleLabel");
+const themeToggleIcon = document.querySelector(".theme-toggle-icon");
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const darkModeMedia = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -550,7 +551,15 @@ function initThemeControls() {
     themeToggle.addEventListener("click", () => {
       const current = readThemePreference();
       const next = current === "system" ? "light" : current === "light" ? "dark" : "system";
-      applyThemePreference(next);
+      if (themeToggleIcon) {
+        themeToggleIcon.classList.add("animating");
+      }
+      setTimeout(() => {
+        applyThemePreference(next);
+        if (themeToggleIcon) {
+          themeToggleIcon.classList.remove("animating");
+        }
+      }, 150);
     });
   }
 
