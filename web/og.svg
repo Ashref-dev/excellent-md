@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#04050c"/>
+      <stop offset="50%" stop-color="#070a14"/>
+      <stop offset="100%" stop-color="#03040a"/>
+    </linearGradient>
+    <radialGradient id="orb1" cx="30%" cy="30%">
+      <stop offset="0%" stop-color="rgba(164,139,255,0.2)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="80%" cy="20%">
+      <stop offset="0%" stop-color="rgba(88,152,255,0.14)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="pill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4efff"/>
+      <stop offset="42%" stop-color="#d7cbff"/>
+      <stop offset="100%" stop-color="#b4a5ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="360" cy="189" r="400" fill="url(#orb1)"/>
+  <circle cx="960" cy="126" r="340" fill="url(#orb2)"/>
+  <rect x="140" y="70" width="920" height="490" rx="20" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <line x1="140" y1="70" x2="1060" y2="70" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <circle cx="180" cy="55" r="5" fill="#a48bff">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <text x="196" y="61" font-family="Inter,system-ui,sans-serif" font-size="16" font-weight="600" fill="#f6f4ff">excel.ashref.tn</text>
+  <text x="200" y="240" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="600" fill="rgba(246,244,255,0.6)" letter-spacing="3">EXCEL TO MARKDOWN</text>
+  <text x="200" y="310" font-family="Inter,system-ui,sans-serif" font-size="64" font-weight="700" fill="#f6f4ff" letter-spacing="-1">Clean markdown</text>
+  <text x="200" y="385" font-family="Instrument Serif,Georgia,serif" font-size="64" font-style="italic" fill="#cabdff" letter-spacing="-1">without friction.</text>
+  <text x="200" y="445" font-family="Inter,system-ui,sans-serif" font-size="22" fill="rgba(246,244,255,0.7)">Upload XLSX, convert every sheet, download Markdown.</text>
+  <rect x="200" y="480" width="110" height="40" rx="999" fill="none" stroke="rgba(164,139,255,0.5)" stroke-width="1"/>
+  <text x="255" y="506" font-family="Inter,system-ui,sans-serif" font-size="14" fill="rgba(246,244,255,0.8)" text-anchor="middle">Multi-sheet</text>
+  <rect x="325" y="480" width="70" height="40" rx="999" fill="none" stroke="rgba(164,139,255,0.5)" stroke-width="1"/>
+  <text x="360" y="506" font-family="Inter,system-ui,sans-serif" font-size="14" fill="rgba(246,244,255,0.8)" text-anchor="middle">Fast</text>
+  <rect x="410" y="480" width="130" height="40" rx="999" fill="none" stroke="rgba(164,139,255,0.5)" stroke-width="1"/>
+  <text x="475" y="506" font-family="Inter,system-ui,sans-serif" font-size="14" fill="rgba(246,244,255,0.8)" text-anchor="middle">Export ready</text>
+</svg>

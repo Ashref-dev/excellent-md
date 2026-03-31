@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-//go:embed index.html assets/*
+//go:embed index.html assets/* og.svg
 var content embed.FS
 
 // Handler returns a static file handler for the embedded frontend.
@@ -27,7 +27,7 @@ func Handler() http.Handler {
 			return
 		}
 
-		if strings.HasPrefix(r.URL.Path, "/assets/") {
+		if strings.HasPrefix(r.URL.Path, "/assets/") || r.URL.Path == "/og.svg" {
 			fileServer.ServeHTTP(w, r)
 			return
 		}
